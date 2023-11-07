@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { TiDeleteOutline } from "react-icons/ti";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [inputValue, setInputValue] = useState('');
+  const [list, setList] = useState([]);
+
+    return (<>  
+  <div className='todolist-container'>
+
+    <h1>Todos</h1>
+    <ul>
+      <li><input
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            setList(list.concat(inputValue));
+            setInputValue("");
+          }
+        }}
+        placeholder="What do you need to do?"
+      /></li>
+       {list.map((l, index) => (
+      <li>
+        {l}{""} <button onClick={() => {
+          setList( list.filter((a, currentIndex) => index !== currentIndex))
+        }}><TiDeleteOutline/></button>
+      </li>))}
+      <li>{list.length} "item left"</li>
+    </ul>
+      
+  </div>
+    
+    </>
   );
 }
 
