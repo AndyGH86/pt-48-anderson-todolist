@@ -1,3 +1,8 @@
+body {
+  background-color:cadetblue;
+}
+
+
 .todolist-container {
   display: flex;
   flex-direction: column;
@@ -33,6 +38,7 @@ ul li {
   justify-content:space-between;
   border: 1px solid;
   padding: 5px;
+  font-size: 18px;
 
 
 }
@@ -47,5 +53,7 @@ button {
   background-color:whitesmoke;
   align-items: flex-end;
   color:#EBD8D9 ;
+  font-size: 18px;
+  
 
 }

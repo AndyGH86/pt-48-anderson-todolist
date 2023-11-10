@@ -28,7 +28,7 @@ function App() {
           setList( list.filter((a, currentIndex) => index !== currentIndex))
         }}><TiDeleteOutline/></button>
       </li>))}
-      <li>{list.length} "item left"</li>
+      <li> {list.length} "item left"</li>
     </ul>
       
   </div>
